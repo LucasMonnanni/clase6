@@ -1,8 +1,10 @@
 import express from 'express';
 import ProductManager from './productManager.js';
+import { resolve } from 'path';
 
 const app = express();
-const pm = new ProductManager('./products.json')
+const path = resolve('./products.json')
+const pm = new ProductManager(path)
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
